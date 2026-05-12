@@ -4,11 +4,14 @@
   "private": true,
   "description": "Telegram bot that gates private channel access behind crypto payments via KIRAPAY (settled on Solana)",
   "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "dev": "tsx watch src/index.ts",
-    "start": "node dist/index.js",
+    "start": "tsx src/index.ts",
     "build": "tsc",
-    "db:generate": "prisma generate",
+    "postinstall": "prisma generate",
     "db:push": "prisma db push",
     "db:migrate": "prisma migrate dev",
     "db:studio": "prisma studio",
@@ -23,14 +26,14 @@
     "node-cron": "^3.0.3",
     "pino": "^9.5.0",
     "pino-pretty": "^11.3.0",
+    "prisma": "^5.22.0",
+    "tsx": "^4.19.2",
     "zod": "^3.23.8"
   },
   "devDependencies": {
     "@types/express": "^5.0.0",
     "@types/node": "^22.9.0",
     "@types/node-cron": "^3.0.11",
-    "prisma": "^5.22.0",
-    "tsx": "^4.19.2",
     "typescript": "^5.6.3"
   }
 }
